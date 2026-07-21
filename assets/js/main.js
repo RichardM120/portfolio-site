@@ -14,5 +14,19 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  // Mobile nav fallback: simple anchor smooth scroll already via CSS
+  // Mobile hamburger menu
+  var navEl = document.querySelector('.nav');
+  var toggle = document.querySelector('.nav-toggle');
+  if (navEl && toggle) {
+    toggle.addEventListener('click', function () {
+      var isOpen = navEl.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+    navEl.querySelectorAll('.nav-mobile a').forEach(function (a) {
+      a.addEventListener('click', function () {
+        navEl.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
 });
