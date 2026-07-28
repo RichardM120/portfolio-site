@@ -330,6 +330,49 @@ html.locked body > *:not(#gate){
 .gate-contact{font-size:13px;color:var(--muted);text-decoration:underline;}
 .gate-contact:hover{color:var(--amber-bright);}
 
+/* FEEDBACK TAB (floating, all pages) */
+.feedback-tab{
+  position:fixed;bottom:24px;right:24px;z-index:60;
+  display:flex;align-items:center;gap:8px;
+  background:var(--amber);color:var(--ink);
+  padding:12px 20px;border-radius:999px;
+  font-size:13px;font-weight:700;font-family:'Inter',sans-serif;
+  box-shadow:0 10px 30px rgba(0,0,0,.4);
+  transition:transform .15s, background .15s;
+}
+.feedback-tab:hover{background:var(--amber-bright);transform:translateY(-2px);}
+.feedback-tab svg{flex:none;}
+@media (max-width:480px){ .feedback-tab{bottom:16px;right:16px;padding:10px 16px;font-size:12px;} }
+
+/* FEEDBACK PAGE */
+.fb-wrap{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px;}
+.fb-card{width:100%;max-width:460px;background:var(--ink-2);border:1px solid var(--line);border-radius:var(--radius);padding:40px 36px;box-shadow:0 30px 80px rgba(0,0,0,.5);}
+.fb-mark{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:20px;margin-bottom:10px;text-align:center;}
+.fb-mark span{color:var(--amber);}
+.fb-card h2{font-size:1.5rem;text-align:center;}
+.fb-card > p{text-align:center;font-size:14px;margin-bottom:26px;}
+.fb-scale{margin-bottom:20px;}
+.fb-scale label{display:block;font-size:13.5px;color:var(--paper);margin-bottom:12px;font-weight:600;}
+.fb-scale-row{display:flex;gap:8px;}
+.fb-scale-row button{
+  flex:1;height:46px;border-radius:10px;border:1px solid var(--line);
+  background:transparent;color:var(--paper-dim);font-family:'Space Grotesk',sans-serif;
+  font-size:16px;font-weight:600;cursor:pointer;transition:all .15s;
+}
+.fb-scale-row button:hover{border-color:var(--amber-dim);}
+.fb-scale-row button.active{background:var(--amber);border-color:var(--amber);color:var(--ink);}
+.fb-scale-labels{display:flex;justify-content:space-between;font-size:11.5px;color:var(--muted);margin-top:6px;}
+.fb-field{margin-bottom:18px;}
+.fb-field label{display:block;font-size:13px;color:var(--muted);margin-bottom:6px;}
+.fb-field textarea,.fb-field input{
+  width:100%;padding:10px 14px;border-radius:10px;border:1px solid var(--line);
+  background:var(--ink);color:var(--paper);font-family:'Inter',sans-serif;font-size:14px;
+  outline:none;resize:none;
+}
+.fb-field textarea:focus,.fb-field input:focus{border-color:var(--amber);}
+.fb-error{font-size:12.5px;color:#e08b7c;min-height:18px;margin-bottom:6px;}
+.fb-note{font-size:12px;color:var(--muted);text-align:center;margin:18px 0 0;}
+
 /* CASE STUDY PAGE */
 .cs-hero{padding:110px 0 0;}
 .crumbs{

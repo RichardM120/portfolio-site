@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Site feedback — Richard Morland</title>
+<meta name="description" content="Quick feedback on Richard Morland's portfolio site.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<div class="fb-wrap">
+  <div class="fb-card" id="fb-card">
+    <div class="fb-mark">Richard Morland<span>.</span></div>
+    <h2>Quick feedback</h2>
+    <p>Two minutes, tops — this helps me sharpen the site before it goes out to recruiters.</p>
+
+    <form id="fb-form">
+      <div class="fb-scale">
+        <label>Overall, how would you rate the site?</label>
+        <div class="fb-scale-row" id="fb-scale-row">
+          <button type="button" data-val="1">1</button>
+          <button type="button" data-val="2">2</button>
+          <button type="button" data-val="3">3</button>
+          <button type="button" data-val="4">4</button>
+          <button type="button" data-val="5">5</button>
+        </div>
+        <div class="fb-scale-labels"><span>Needs work</span><span>Excellent</span></div>
+      </div>
+
+      <div class="fb-field">
+        <label for="fb-text">Anything specific? (optional)</label>
+        <textarea id="fb-text" maxlength="300" rows="3" placeholder="e.g. the HSBC case study felt light on detail…"></textarea>
+      </div>
+
+      <div class="fb-field">
+        <label for="fb-name">Your name (optional)</label>
+        <input id="fb-name" type="text" maxlength="60" placeholder="So Richard knows who to thank">
+      </div>
+
+      <div class="fb-error" id="fb-error"></div>
+      <button type="submit" class="btn" style="width:100%;justify-content:center;">Send feedback</button>
+    </form>
+
+    <div class="fb-thanks" id="fb-thanks" hidden>
+      <p style="font-size:1.05rem;color:var(--paper);margin-bottom:6px;">Thanks — opening your email app now.</p>
+      <p style="font-size:13px;">If nothing opens, your feedback is below — copy and send it to <a href="mailto:richmorland@gmail.com" style="color:var(--amber-bright);">richmorland@gmail.com</a> directly.</p>
+      <textarea id="fb-fallback" readonly rows="5" style="width:100%;margin-top:12px;padding:10px 14px;border-radius:10px;border:1px solid var(--line);background:var(--ink);color:var(--paper-dim);font-size:12.5px;font-family:'Inter',sans-serif;"></textarea>
+    </div>
+
+    <p class="fb-note">Submitting opens your email app with the feedback pre-filled, addressed to Richard. Nothing is stored anywhere else.</p>
+  </div>
+</div>
+
+<script>
+(function () {
+  var rating = null;
+  var row = document.getElementById('fb-scale-row');
+  row.querySelectorAll('button').forEach(function (b) {
+    b.addEventListener('click', function () {
+      row.querySelectorAll('button').forEach(function (x) { x.classList.remove('active'); });
+      b.classList.add('active');
+      rating = b.getAttribute('data-val');
+      document.getElementById('fb-error').textContent = '';
+    });
+  });
+
+  document.getElementById('fb-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (!rating) {
+      document.getElementById('fb-error').textContent = 'Please choose a rating from 1–5.';
+      return;
+    }
+    var text = document.getElementById('fb-text').value.trim();
+    var name = document.getElementById('fb-name').value.trim();
+
+    var lines = [
+      'Rating: ' + rating + ' / 5',
+      'Name: ' + (name || '(not given)'),
+      'Comments: ' + (text || '(none)'),
+      'Page: ' + document.referrer || '(direct link)'
+    ];
+    var body = lines.join('\n');
+    var subject = 'Portfolio site feedback (' + rating + '/5)';
+    var mailto = 'mailto:richmorland@gmail.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+
+    document.getElementById('fb-form').hidden = true;
+    var thanks = document.getElementById('fb-thanks');
+    thanks.hidden = false;
+    document.getElementById('fb-fallback').value = 'To: richmorland@gmail.com\nSubject: ' + subject + '\n\n' + body;
+
+    window.location.href = mailto;
+  });
+})();
+</script>
+
+</body>
+</html>
