@@ -81,7 +81,7 @@
       'Rating: ' + rating + ' / 5',
       'Name: ' + (name || '(not given)'),
       'Comments: ' + (text || '(none)'),
-      'Page: ' + document.referrer || '(direct link)'
+      'Page: ' + (document.referrer || '(direct link)')
     ];
     var body = lines.join('\n');
     var subject = 'Portfolio site feedback (' + rating + '/5)';
