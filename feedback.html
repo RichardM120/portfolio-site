@@ -6,6 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Site feedback — Richard Morland</title>
 <meta name="description" content="Quick feedback on Richard Morland's portfolio site.">
+<link rel="canonical" href="https://richardmorland.com/feedback.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css">
@@ -47,7 +48,7 @@
 
     <div class="fb-thanks" id="fb-thanks" hidden>
       <p style="font-size:1.05rem;color:var(--paper);margin-bottom:6px;">Thanks — opening your email app now.</p>
-      <p style="font-size:13px;">If nothing opens, your feedback is below — copy and send it to <a href="mailto:richmorland@gmail.com" style="color:var(--amber-bright);">richmorland@gmail.com</a> directly.</p>
+      <p style="font-size:13px;">If nothing opens, your feedback is below — copy and send it to <a href="mailto:richardmorland@gmail.com" style="color:var(--amber-bright);">richardmorland@gmail.com</a> directly.</p>
       <textarea id="fb-fallback" readonly rows="5" style="width:100%;margin-top:12px;padding:10px 14px;border-radius:10px;border:1px solid var(--line);background:var(--ink);color:var(--paper-dim);font-size:12.5px;font-family:'Inter',sans-serif;"></textarea>
     </div>
 
@@ -85,12 +86,12 @@
     ];
     var body = lines.join('\n');
     var subject = 'Portfolio site feedback (' + rating + '/5)';
-    var mailto = 'mailto:richmorland@gmail.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+    var mailto = 'mailto:richardmorland@gmail.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
 
     document.getElementById('fb-form').hidden = true;
     var thanks = document.getElementById('fb-thanks');
     thanks.hidden = false;
-    document.getElementById('fb-fallback').value = 'To: richmorland@gmail.com\nSubject: ' + subject + '\n\n' + body;
+    document.getElementById('fb-fallback').value = 'To: richardmorland@gmail.com\nSubject: ' + subject + '\n\n' + body;
 
     window.location.href = mailto;
   });

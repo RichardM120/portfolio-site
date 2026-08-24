@@ -39,7 +39,7 @@
       '<button type="submit">Enter</button>' +
       '</form>' +
       '<div class="gate-err" role="alert"></div>' +
-      '<a class="gate-contact" href="mailto:richmorland@gmail.com">Request access</a>' +
+      '<a class="gate-contact" href="mailto:richardmorland@gmail.com">Request access</a>' +
       '</div>';
     document.body.appendChild(gate);
 
