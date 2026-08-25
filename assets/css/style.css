@@ -283,7 +283,9 @@ footer{padding:36px 0;}
 footer .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
 footer .fine{font-size:12.5px;color:var(--muted);}
 footer .flinks{display:flex;gap:20px;}
-footer .flinks a{font-size:13px;color:var(--paper-dim);}
+/* min-height keeps the touch target at the 24px WCAG 2.5.8 minimum without
+   changing the text size or the space between links. */
+footer .flinks a{font-size:13px;color:var(--paper-dim);display:inline-flex;align-items:center;min-height:24px;}
 footer .flinks a:hover{color:var(--amber);}
 
 /* PASSWORD GATE */
@@ -388,7 +390,7 @@ html.locked body > *:not(#gate):not(noscript){
   display:flex;flex-wrap:wrap;align-items:center;gap:10px;
   font-size:13.5px;margin-bottom:28px;
 }
-.crumbs a{color:var(--paper-dim);transition:color .15s;}
+.crumbs a{color:var(--paper-dim);transition:color .15s;display:inline-flex;align-items:center;min-height:24px;}
 .crumbs a:hover{color:var(--amber-bright);}
 .crumbs .sep{color:var(--muted);}
 .crumbs .here{color:var(--amber-bright);font-weight:600;}
