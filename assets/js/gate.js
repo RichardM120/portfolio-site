@@ -39,7 +39,7 @@
       '<h2>Private portfolio</h2>' +
       '<p>This site contains confidential client work. Enter the password you were given to continue.</p>' +
       '<form class="gate-form">' +
-      '<input type="password" autocomplete="off" placeholder="Password" aria-label="Password">' +
+      '<input type="password" autocomplete="current-password" placeholder="Password" aria-label="Password">' +
       '<button type="submit">Enter</button>' +
       '</form>' +
       '<div class="gate-err" role="alert"></div>' +
