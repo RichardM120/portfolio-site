@@ -288,10 +288,19 @@ footer .flinks a:hover{color:var(--amber);}
 
 /* PASSWORD GATE */
 html.locked{overflow:hidden;}
-html.locked body > *:not(#gate){
-  filter:blur(16px);
-  pointer-events:none;
-  user-select:none;
+/* Gated content is not rendered at all: not visible, not selectable, not in
+   the accessibility tree, not captured by screenshots. The class ships in the
+   markup and gate.js removes it, so the page stays hidden if JS is disabled
+   or fails to load. */
+html.locked body > *:not(#gate):not(noscript){
+  display:none !important;
+}
+.nojs-note{
+  position:fixed;inset:0;z-index:1001;
+  display:flex;align-items:center;justify-content:center;
+  margin:0;padding:24px;text-align:center;
+  background:var(--ink);color:var(--paper-dim);
+  font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:15px;
 }
 #gate{
   position:fixed;inset:0;z-index:1000;
