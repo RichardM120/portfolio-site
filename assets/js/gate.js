@@ -5,7 +5,7 @@
      .then(b => console.log([...new Uint8Array(b)].map(x => x.toString(16).padStart(2,'0')).join('')))
 */
 (function () {
-  var HASH = 'baf43aebc9c6edd4e0b822c53b8bac151561a107441945c1e9a8516309223ef7';
+  var HASH = '686b21176f29479dea2af97f10acc92a4b3c17793d3e3a6d26160cc754668069';
   var KEY = 'rm_gate_ok';
 
   if (sessionStorage.getItem(KEY) === '1') return;

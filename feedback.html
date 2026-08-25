@@ -9,6 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css">
+<script src="assets/js/gate.js"></script>
 </head>
 <body>
 
@@ -81,7 +82,7 @@
       'Rating: ' + rating + ' / 5',
       'Name: ' + (name || '(not given)'),
       'Comments: ' + (text || '(none)'),
-      'Page: ' + document.referrer || '(direct link)'
+      'Page: ' + (document.referrer || '(direct link)')
     ];
     var body = lines.join('\n');
     var subject = 'Portfolio site feedback (' + rating + '/5)';
