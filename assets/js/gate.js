@@ -8,9 +8,13 @@
   var HASH = '686b21176f29479dea2af97f10acc92a4b3c17793d3e3a6d26160cc754668069';
   var KEY = 'rm_gate_ok';
 
-  if (sessionStorage.getItem(KEY) === '1') return;
-
-  document.documentElement.classList.add('locked');
+  /* The 'locked' class ships in the markup so the page is hidden before any
+     script runs, and stays hidden if this file never loads. Unlocking is the
+     act of removing it. */
+  if (sessionStorage.getItem(KEY) === '1') {
+    document.documentElement.classList.remove('locked');
+    return;
+  }
 
   function sha256hex(str) {
     return crypto.subtle.digest('SHA-256', new TextEncoder().encode(str)).then(function (buf) {
