@@ -146,7 +146,9 @@ section{padding:58px 0;border-bottom:1px solid var(--line);}
 .section-head p{font-size:1.05rem;}
 
 /* POSITIONING */
-.positioning-copy{display:grid;grid-template-columns:1.1fr .9fr;gap:64px;align-items:start;}
+/* The process loop moved out to its own section, so this column stands
+   alone. Constrained to a readable measure rather than full width. */
+.positioning-copy{display:block;max-width:72ch;}
 .positioning-copy p{font-size:1.08rem;color:var(--paper);}
 .positioning-copy p.dim{color:var(--paper-dim);font-size:1rem;}
 .loop{
@@ -168,7 +170,27 @@ section{padding:58px 0;border-bottom:1px solid var(--line);}
   font-size:12.5px;padding:6px 14px;border-radius:999px;
   border:1px solid var(--line);color:var(--paper-dim);
 }
-@media (max-width:900px){ .positioning-copy{grid-template-columns:1fr;} }
+/* Full-width process loop: four across, then 2x2, then the stacked
+   rows the section reads as on a phone. */
+.loop-wide{display:grid;grid-template-columns:repeat(4,1fr);padding:0;}
+.loop-wide .loop-item{
+  flex-direction:column;align-items:flex-start;gap:14px;
+  padding:28px 24px;border-bottom:none;border-right:1px solid var(--line);
+}
+.loop-wide .loop-item:last-child{border-right:none;}
+@media (max-width:900px){
+  .loop-wide{grid-template-columns:repeat(2,1fr);}
+  .loop-wide .loop-item:nth-child(2n){border-right:none;}
+  .loop-wide .loop-item:nth-child(-n+2){border-bottom:1px solid var(--line);}
+}
+@media (max-width:600px){
+  .loop-wide{grid-template-columns:1fr;padding:24px;}
+  .loop-wide .loop-item{
+    flex-direction:row;align-items:flex-start;gap:16px;padding:16px 0;
+    border-right:none;border-bottom:1px solid var(--line);
+  }
+  .loop-wide .loop-item:last-child{border-bottom:none;}
+}
 
 /* CAPABILITIES */
 /* Separated bordered cards rather than a 1px-gap grid over a coloured
