@@ -73,7 +73,7 @@
   document.getElementById('fb-form').addEventListener('submit', function (e) {
     e.preventDefault();
     if (!rating) {
-      document.getElementById('fb-error').textContent = 'Please choose a rating from 1–5.';
+      document.getElementById('fb-error').textContent = 'Please choose a rating from 1-5.';
       return;
     }
     var text = document.getElementById('fb-text').value.trim();
