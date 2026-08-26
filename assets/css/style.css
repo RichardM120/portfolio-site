@@ -201,6 +201,10 @@ section{padding:58px 0;border-bottom:1px solid var(--line);}
 .cap-card .idx{font-family:'Space Grotesk',sans-serif;color:var(--amber-dim);font-size:13px;margin-bottom:14px;}
 .cap-card h3{font-size:18px;}
 .cap-card p{font-size:13.8px;margin:0;}
+/* The role-fit cards carry several sentences rather than a one-line blurb,
+   so they get a slightly larger measure than the capability grid. */
+#fit .cap-card p{font-size:15px;line-height:1.6;}
+#fit .cap-card h3{margin-bottom:10px;}
 @media (max-width:560px){ .cap-grid{grid-template-columns:1fr;} }
 
 /* BRAND STRIP */
