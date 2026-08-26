@@ -1,4 +1,4 @@
-/* Password gate — protects brand work from casual/unauthorised viewing.
+/* Password gate. Protects brand work from casual/unauthorised viewing.
    To change the password: replace HASH below with the SHA-256 hex of the new
    password (e.g. run in any browser console:
    crypto.subtle.digest('SHA-256', new TextEncoder().encode('newpassword'))
@@ -59,7 +59,7 @@
       if (window.crypto && crypto.subtle) {
         sha256hex(val).then(function (h) {
           if (h === HASH) { unlock(gate); }
-          else { err.textContent = 'Incorrect password — please try again.'; input.select(); }
+          else { err.textContent = 'Incorrect password. Please try again.'; input.select(); }
         });
       } else {
         err.textContent = 'This browser cannot verify the password. Please use a modern browser.';
