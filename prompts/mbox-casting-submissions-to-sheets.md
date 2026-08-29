@@ -13,6 +13,9 @@ one row per applicant into the target Google Sheet.
    "go" for the full run. Don't skip the dry run — that's where you catch a bad filter.
 4. Expect ~10–25 minutes for 200+ emails, most of it the per-email reading pass.
 
+A runnable implementation of this prompt lives in `tools/casting-extractor/` — run that
+directly if you would rather not have Claude write the parser from scratch.
+
 **Edit these two lines in the prompt if anything changed:** the `MBOX` path and the
 `SHEET_URL`. Everything else is generic.
 
